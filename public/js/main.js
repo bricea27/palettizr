@@ -10,7 +10,18 @@ function getColors() {
   xhr.addEventListener('load', function(e) {
     data = xhr.responseText;
     parsed = JSON.parse(data);
-    parsed.forEach(function(result){
+
+    var colors = parsed[0];
+    var images = parsed[1];
+
+    images.forEach(function(image){
+      console.log(image);
+      var img = document.createElement("img");
+      img.setAttribute("src", image);
+      document.body.appendChild(img);
+    });
+
+    colors.forEach(function(result){
       result.forEach(function(colorsArray){
         var color = colorsArray.color;
         var r = color[0];

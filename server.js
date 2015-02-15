@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/colors', function(req, res) {
-  var tag = "snow";
+  var tag = "sunset";
   var url = "https://api.instagram.com/v1/tags/" + tag + "/media/recent?client_id=" + instaKey;
   var imageUrls = []
   request(url, function (error, response, body) {
@@ -44,32 +44,13 @@ app.get('/colors', function(req, res) {
             var colors = result.images[0].colors;
             colorsArray.push(colors);
           });
-          res.json(colorsArray);
+          res.json([colorsArray, imageUrls]);
         }
       })
       // res.json(imageUrls);
     }
   })
 });
-
-// app.get('/colors', function(req, res) {
-//   var url1 = "http://upload.wikimedia.org/wikipedia/commons/4/4a/Snow_on_the_mountains_of_Southern_California.jpg";
-//   var url2 = "http://upload.wikimedia.org/wikipedia/commons/4/4a/Snow_on_the_mountains_of_Southern_California.jpg";
-//   var url3 = "http://upload.wikimedia.org/wikipedia/commons/4/4a/Snow_on_the_mountains_of_Southern_California.jpg";
-//   var url = "http://api.embed.ly/1/extract?key=" + embedlyKey + "&urls=" + url1 + "," + url2 + "," + url3;
-//
-//   request(url, function (error, response, body) {
-//     if (!error && response.statusCode == 200) {
-//       var parsed = JSON.parse(body);
-//       var colorsArray = [];
-//       parsed.forEach(function(result){
-//         var colors = result.images[0].colors;
-//         colorsArray.push(colors);
-//       });
-//       res.send(colorsArray);
-//     }
-//   })
-// });
 
 var server = app.listen(3000, function() {
   console.log('Server is listening on port 3000');
