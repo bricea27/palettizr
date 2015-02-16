@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Palettizr</title>
-  <style>
-    li, img {
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-    }
-  </style>
-</head>
+<% include partials/template/head.ejs %>
 <body>
+  <% include partials/template/header.ejs %>
 
-  <h1>Palettizr</h1>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Welcome to Palettizr!</h1>
+    </div>
+  </div>
 
-  <input type="text" placeholder="Search" id="search">
+  <% include partials/template/footer.ejs %>
 
-  <ul>
-
-  </ul>
-
-<script src="js/main.js"></script>
 </body>
 </html>
