@@ -1,11 +1,12 @@
 <% include partials/template/head.ejs %>
 <body>
+
   <% include partials/template/header.ejs %>
 
   <div class="container results">
     <% topResults.forEach(function(each){ %>
-      <div class="col-sm-4 imageResults">
-        <img src="<%= each %>" alt="">
+      <div class="col-sm-6 imageResults">
+          <img src="<%= each %>" alt="">
       </div>
     <% }) %>
   </div>
